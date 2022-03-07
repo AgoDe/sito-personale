@@ -5,7 +5,7 @@
 
                 <div class="col-10 col-lg-8 box">
 
-                    <button class="d-flex flex-column flex-lg-row">
+                    <button @click="$emit('returnTransition')" class="d-flex flex-column flex-lg-row">
                         <div class="mx-4 my-2">Enter to Website</div>
                         <img class="mx-4 my-2" src="/images/enter-icon.png" alt="enter icon">
                     </button>
