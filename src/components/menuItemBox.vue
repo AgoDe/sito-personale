@@ -72,7 +72,7 @@ export default {
             }
         },
          returnMouth: function(index, item) {
-            if(index === this.columnIndex && item.menu_status && index != 1) {
+            if(index === this.columnIndex && item.menu_status && index != 1 && index != this.columnNumber) {
                 return 'animate'
             }
         },
