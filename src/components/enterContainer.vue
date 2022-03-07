@@ -59,6 +59,7 @@ export default {
 
                     img {
                         width: 30px;
+                        fill: $bg_blue;
                     }
                 } // end of button
             } // end of box
