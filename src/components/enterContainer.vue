@@ -5,7 +5,11 @@
 
                 <div class="col-10 col-lg-8 box">
 
-                    <button @click="$emit('returnTransition')" class="d-flex flex-column flex-lg-row">
+                    <button 
+                    class="d-flex flex-column flex-lg-row"
+                    @click="$emit('returnTransition')" 
+                    
+                    >
                         <div class="mx-4 my-2">Enter to Website</div>
                         <img class="mx-4 my-2" src="/images/enter-icon.png" alt="enter icon">
                     </button>
@@ -18,8 +22,17 @@
 
 <script>
 export default {
-    
+    mounted() {
+        // enter to website
+         document.addEventListener('keydown', (event) => {
+            if (event.code === 'Enter') {
+                
+                this.$emit('returnTransition')
+            }
+        }) 
+    }    
 }
+
 </script>
 
 <style lang="scss" scoped>
