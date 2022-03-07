@@ -116,7 +116,7 @@ export default {
 
     .big-container {
         background-color: $bg_blue;
-        font-family: 'Press Start 2P', arial;
+        font-family: $start;
 
         display: flex;
         align-items: center;

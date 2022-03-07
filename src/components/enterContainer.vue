@@ -27,7 +27,7 @@ export default {
 
 .big-container {
     background-color: $bg-blue;
-    font-family: 'Press Start 2P', cursive;
+    font-family: $start;
 
     .container{
         height: 100%;
