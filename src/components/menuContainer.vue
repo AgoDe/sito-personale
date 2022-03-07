@@ -18,6 +18,9 @@
                     :item="item"
                     :rowIndex="rowIndex"
                     :columnIndex="columnIndex"
+                    :columnNumber="columnNumber"
+                    :activeItem="activeItem"
+                    @pressBtn="pressBtn"
                    />
                 </div>
 
@@ -36,8 +39,73 @@ export default {
     data() {
         return {
             rowIndex: 0,
-            columnIndex: 2,
+            columnIndex: 1,
+            columnNumber: 9,
+            activeItem: 0
         }
+    },
+     mounted() {
+         // move pacman up and down
+        document.addEventListener('keydown', (event) => {
+            
+            console.log(event)
+            
+            if(event.code === 'ArrowUp') {
+                 if(this.activeItem <= 0) {
+                    this.activeItem = this.menuItem.length - 1
+                } else {
+                    this.activeItem--
+                }   
+                this.itemUp(this.activeItem)
+
+            } else if  (event.code ==='ArrowDown') {
+                if(this.activeItem >= this.menuItem.length - 1) {
+                    this.activeItem = 0
+                } else {
+                    this.activeItem++
+                }
+                this.itemDown(this.activeItem)
+
+            } else if (event.code === 'Enter') {
+                
+               this.movePacman()
+                 
+             }
+        }) // end of move pacman up and down (addeventListener)
+        
+    },
+    methods: {
+        pressBtn: function(item) {
+             this.menuItem.forEach(element => {
+                element.menu_status = false
+            });
+            item.menu_status = true
+            
+
+            this.movePacman()
+        },
+        movePacman: function() {
+             setInterval(()=> {
+
+                    if(this.columnIndex <= this.columnNumber - 1) {
+                    this.columnIndex++
+                    
+                    }
+
+                }, 300)
+        },
+        itemDown: function(index) {
+            this.menuItem.forEach(element => {
+                element.menu_status = false
+            });
+            this.menuItem[index].menu_status = true
+        },
+        itemUp: function(index) {
+            this.menuItem.forEach(element => {
+                element.menu_status = false
+            });
+            this.menuItem[index].menu_status = true  
+        },
     }
     
 }

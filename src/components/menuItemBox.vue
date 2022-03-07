@@ -4,7 +4,7 @@
         <div class="row">
             <div 
             class="col-lg-1"
-            :class="[returnGhost(index),]"
+            :class="[returnGhost(index, item),]"
             v-for="index in columnNumber"
             :key="index"
             >
@@ -13,7 +13,8 @@
                 :class="[returnPacman(index, item), returnDot(index, item)]"
                 >
                     <div 
-                    class="mouth"    
+                    class="mouth"
+                    :class="returnMouth(index, item)"    
                     >
                     </div>
                 </div>
@@ -21,7 +22,10 @@
             </div>    
 
             <!-- <div class="col-1"></div> -->
-            <button class="col-lg-3 item">
+            <button 
+            class="col-lg-3 item"
+            @click="$emit('pressBtn', item)"
+            >
                 {{ item.title}}
             </button>    
               
@@ -33,23 +37,21 @@
 export default {
     props: {
         item:Object,
+        menuItem:Array,
         rowIndex: Number,
         columnIndex: Number,
+        columnNumber: Number,
+        activeItem: Number,
        
     },
     data() {
         return {
-            columnNumber: 9,
+            
         }
     },
-    mounted() {
-        
-    },
-    computed: {
-
-    },
     methods: {
-         returnPacman: function(index, item) {
+       
+        returnPacman: function(index, item) {
             if(index === this.columnIndex && item.menu_status) {
                 return 'pacman'
             }
@@ -60,11 +62,18 @@ export default {
                 return 'dot'
             }
         },
-         returnGhost: function(index) {
-            if (index === this.columnNumber && this.columnIndex === 1) {
-                return 'ghost'
-            } else if (index === this.columnNumber && this.columnIndex != 1 ) {
+         returnGhost: function(index, item) {
+            if ( item.menu_status == true && index === this.columnNumber && this.columnIndex != 1 && this.columnIndex != this.columnNumber) {
                 return 'vulnerable'
+            } else if (index === this.columnNumber && this.columnIndex != this.columnNumber) {
+                return 'ghost'
+            } else if (index === this.columnNumber && item.menu_status == false && this.columnIndex == this.columnNumber ){
+                return 'ghost'
+            }
+        },
+         returnMouth: function(index, item) {
+            if(index === this.columnIndex && item.menu_status && index != 1) {
+                return 'animate'
             }
         },
 
@@ -96,6 +105,7 @@ export default {
                 border-radius: 10px;
                 padding: 8px 0;
                 color: $bg_blue;
+                font-size: 18px;
                 text-align: center;
 
             }
@@ -105,11 +115,11 @@ export default {
     // classi funzioni
     .ghost {
         background: url('../assets/ghost.png') center center no-repeat;
-        background-size: 80%;
+        background-size: contain;
     }
     .vulnerable {
         background: url('../assets/vulnerable_ghost.png') center center no-repeat;
-        background-size: 80%;
+        background-size: contain;
     }
     .pacman {
     width: 60px;
