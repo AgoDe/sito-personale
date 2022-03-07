@@ -1,18 +1,22 @@
 <template>
   <div class="window">
 
-    <enter-container v-if="enterVisible" class="enter"
+    <enter-container 
+    class="enter"
+    v-if="enterVisible" 
     @returnTransition="returnTransition" 
     />
-    <menu-container v-if="menuVisible" class="home"
+    <menu-container
+     class="home"
+     v-if="menuVisible" 
     :menuItem="menuItem"
     />
 
-    <!-- <div class="enter">float left</div>
+    <curriculum-container
+    class="curriculum"
+    v-if="curriculumVisible"
+    />
 
-    <div class="home">
-      float right
-    </div> -->
 
   </div>
 </template>
@@ -22,20 +26,22 @@ import anime from 'animejs/lib/anime.es.js';
 
 import EnterContainer from './components/enterContainer.vue'
 import MenuContainer from './components/menuContainer.vue'
+import CurriculumContainer from './components/curriculumContainer.vue';
 
 
 export default {
   name: 'App',
   components: {
     MenuContainer,
-    EnterContainer
+    EnterContainer,
+    CurriculumContainer
   },
   data() {
     return {
-      enterVisible: true,
+      enterVisible: false,
       menuVisible: false,
       chisonoVisible: false,
-      curriculumVisible: false,
+      curriculumVisible: true,
       contattiVisible:false,
 
       menuItem: [
