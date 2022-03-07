@@ -2,10 +2,15 @@
     <div class="big-container">
 
         <div class="container">
-            <h1>Agostino De Felice</h1>
 
-        </div>
-        
+            <div class="row">
+                <h1>Agostino De Felice</h1>
+
+                <h3>Full Stack Web Developer</h3>
+
+               
+            </div>
+        </div> <!-- end of container -->
     </div>
 </template>
 
@@ -27,17 +32,28 @@ export default {
 
         .container {
             height: 90%;
-            border: 4px solid $yellow;
-            border-radius: 15px;
+            padding: 10px;
+            
 
-            h1 {
-                color: $yellow;
-                padding: 20px 0;
-                text-align: center;
-    
-            }
-        }
+            .row {
+                margin: 0 auto;
+                border: 4px solid $yellow;
+                border-radius: 15px;
 
-    }
+                h1 {
+                    color: $yellow;
+                    padding: 30px 0;
+                    text-align: center;
+                }
+                h3 {
+                    color: white;
+                    text-align: center;
+                    font-size: 20px;
+                }
+
+                
+            }// end of row
+        } // end of container
+    } // end of big-container
 
 </style>
