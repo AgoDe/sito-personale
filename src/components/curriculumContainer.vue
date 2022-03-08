@@ -30,12 +30,40 @@
             </div> <!-- end of container -->
         </div> <!-- end of nav -->
 
+        <div class="container">
+            <div class="row justify-content-center">
+                <esperienze-box
+                class="col-10 col-lg-6"
+                />
+
+                <formazione-box
+                class="col-10 col-lg-6"
+                />
+
+                <competenze-box
+                class="col-10 col-lg-12"
+                />
+            </div>
+        </div>
 
     </div> <!--  end of big-container -->
 </template>
 
 <script>
+import CompetenzeBox from './curriculum/competenzeBox.vue'
+import esperienzeBox from './curriculum/esperienzeBox.vue'
+import FormazioneBox from './curriculum/formazioneBox.vue'
 export default {
+  components: { 
+    esperienzeBox,
+    CompetenzeBox,
+    FormazioneBox 
+  },
+  data() {
+      return {
+
+      }
+  },
     
 }
 </script>
@@ -92,7 +120,7 @@ export default {
             }
         } // end of row
     } // end of nav
-    
+
 } // end of curriculum
 
 </style>
