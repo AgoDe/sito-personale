@@ -13,7 +13,7 @@ font-family: 'Roboto', sans-serif;
     width: 100%;
 }
 
-.cv-box {
+.cv-container {
     padding: 10px 5px 0;
     
     .border {
@@ -26,6 +26,37 @@ font-family: 'Roboto', sans-serif;
         h4 {
             font-size: 18px;
         } 
+
+        .cv-box {
+            display: flex;
+            color: rgba($color: #000000, $alpha: 0.9);
+            border-bottom: $border_grey 0.5px solid;
+            padding: 15px 0;
+
+            &:last-child {
+                border-bottom: none;
+            }
+            
+            img {
+                width: 48px;
+                height: 48px;
+                object-fit: cover;
+            }
+            .description {
+                font-size: 14px;
+                margin-left: 10px;
+                h4 {
+                    font-size: 16px;
+                }
+
+                .subtext {
+                    color: rgba($color: #000000, $alpha: 0.6);
+                    padding: 1px 0;
+                }
+            }
+        }
     }
+
+
 
 }

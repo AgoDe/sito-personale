@@ -32,16 +32,13 @@
 
         <div class="container">
             <div class="row justify-content-center">
-                <esperienze-box
-                class="col-10 col-lg-6"
-                />
-
-                <formazione-box
-                class="col-10 col-lg-6"
-                />
 
                 <competenze-box
-                class="col-10 col-lg-12"
+                class="col-10 col-lg-6"
+                />
+
+                <esperienze-box
+                class="col-10 col-lg-6"
                 />
             </div>
         </div>
@@ -52,12 +49,12 @@
 <script>
 import CompetenzeBox from './curriculum/competenzeBox.vue'
 import esperienzeBox from './curriculum/esperienzeBox.vue'
-import FormazioneBox from './curriculum/formazioneBox.vue'
+
 export default {
   components: { 
     esperienzeBox,
     CompetenzeBox,
-    FormazioneBox 
+    
   },
   data() {
       return {
@@ -74,6 +71,7 @@ export default {
 .curriculum {
     background-color:$bg_linkedin;
     font-family: $roboto;
+    overflow-y: auto ;
 
     .nav {
         height: 60px;
