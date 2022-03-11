@@ -17,6 +17,11 @@
     v-if="curriculumVisible"
     />
 
+    <contatti-container
+    class="contatti"
+    v-if="contattiVisible"
+    />
+
 
   </div>
 </template>
@@ -27,6 +32,7 @@ import anime from 'animejs/lib/anime.es.js';
 import EnterContainer from './components/enterContainer.vue'
 import MenuContainer from './components/menuContainer.vue'
 import CurriculumContainer from './components/curriculumContainer.vue';
+import ContattiContainer from './components/contattiContainer.vue';
 
 
 export default {
@@ -34,15 +40,16 @@ export default {
   components: {
     MenuContainer,
     EnterContainer,
-    CurriculumContainer
+    CurriculumContainer,
+    ContattiContainer
   },
   data() {
     return {
       enterVisible: false,
       menuVisible: false,
       chisonoVisible: false,
-      curriculumVisible: true,
-      contattiVisible:false,
+      curriculumVisible: false,
+      contattiVisible:true,
 
       menuItem: [
           {
