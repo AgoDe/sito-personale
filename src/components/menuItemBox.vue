@@ -64,11 +64,11 @@ export default {
         },
          returnGhost: function(index, item) {
             if ( item.menu_status == true && index === this.columnNumber && this.columnIndex != 1 && this.columnIndex != this.columnNumber) {
-                return 'vulnerable'
+                return 'ghost vulnerable'
             } else if (index === this.columnNumber && this.columnIndex != this.columnNumber) {
-                return 'ghost'
+                return `ghost ghost-${item.id}`
             } else if (index === this.columnNumber && item.menu_status == false && this.columnIndex == this.columnNumber ){
-                return 'ghost'
+                return `ghost ghost-${item.id}`
             }
         },
          returnMouth: function(index, item) {
@@ -114,12 +114,27 @@ export default {
 
     // classi funzioni
     .ghost {
-        background: url('../assets/ghost.png') center center no-repeat;
         background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        
+    }
+
+    .ghost-0 {
+        background-image: url('../assets/ghost-red.svg');
+        
+    }
+    .ghost-1 {
+        background-image: url('../assets/ghost-blue.svg');
+        
+    }
+    .ghost-2 {
+        background-image: url('../assets/ghost-orange.svg');
+        
     }
     .vulnerable {
-        background: url('../assets/vulnerable_ghost.png') center center no-repeat;
-        background-size: contain;
+        background-image: url('../assets/vulnerable_ghost.png');
+        
     }
     .pacman {
     width: 60px;
