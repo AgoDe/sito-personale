@@ -4,6 +4,7 @@
     background-color: #f0eae3;
     .container {
         height: 100%;
+        overflow-y: auto;
         .row {
             height: 100%;
             .info-container {
