@@ -12,6 +12,11 @@
     :menuItem="menuItem"
     />
 
+    <chisono-container
+    class="chi-sono"
+    v-if="chisonoVisible"
+    />
+
     <curriculum-container
     class="curriculum"
     v-if="curriculumVisible"
@@ -33,6 +38,7 @@ import EnterContainer from './components/enterContainer.vue'
 import MenuContainer from './components/menuContainer.vue'
 import CurriculumContainer from './components/curriculumContainer.vue';
 import ContattiContainer from './components/contattiContainer.vue';
+import ChisonoContainer from '../chisonoContainer.vue';
 
 
 export default {
@@ -41,15 +47,16 @@ export default {
     MenuContainer,
     EnterContainer,
     CurriculumContainer,
-    ContattiContainer
+    ContattiContainer,
+    ChisonoContainer,
   },
   data() {
     return {
       enterVisible: false,
       menuVisible: false,
-      chisonoVisible: false,
+      chisonoVisible: true,
       curriculumVisible: false,
-      contattiVisible:true,
+      contattiVisible:false,
 
       menuItem: [
           {
