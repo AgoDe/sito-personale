@@ -107,7 +107,7 @@
                    <div class="chat-box">
 
                        <div class=""
-                       v-for="(item, index) in ItemsToSend"
+                       v-for="(item, index) in itemsToSend"
                        :key="index"
                        >
 
@@ -140,7 +140,7 @@
 
                </div>
                <!-- end of colonna destra (chat) -->
-
+                <button @click="sendEmail()">invia</button>
            </div>
         </div>
     </div>
@@ -148,11 +148,17 @@
 
 <script>
 import Router from '../router';
+import emailJs from '@emailjs/browser'
 
 export default {
     data() {
         return {
-            ItemsToSend:[],
+            forEmail: {
+                name: '',
+                email: '',
+                message: '',
+            },
+            itemsToSend:[],
             activeIndex: 0,
             activeItem: {},
             contactItems: [
@@ -181,18 +187,30 @@ export default {
         this.activeItem = this.contactItems[this.activeIndex]
     },
     methods: {
+        sendEmail: function() {
+            this.forEmail.name = this.itemsToSend[0].content
+            this.forEmail.email = this.itemsToSend[1].content
+            this.forEmail.message = this.itemsToSend[2].content
+
+            emailJs.send("agostino_93","contatti_sito", this.forEmail, 'oPDejNpD1WDxc6I2O').then(function(response) {
+                console.log('INVIATA', response.status, response.text)
+            }, function(error) {
+                console.log('FAILED', error)
+            })
+        },
         pagePush: function(page) {
             Router.push(page)
         },
         pushItem: function(item) {
 
-            if (this.ItemsToSend.length != this.contactItems.length) {
+            if (this.itemsToSend.length != this.contactItems.length) {
 
-                this.ItemsToSend.push(item)
+                this.itemsToSend.push(item)
                 this.activeItem = []
                 
                if(this.activeIndex < this.contactItems.length - 1) {
-    
+                   
+
                    this.activeIndex++
                    this.activeItem = this.contactItems[this.activeIndex]
                 }
