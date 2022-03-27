@@ -24,7 +24,7 @@
             <!-- <div class="col-1"></div> -->
             <button 
             class="col-lg-3 item"
-            @click="[$emit('pressBtn', item), $emit('pagePush', item.path)]"
+            @click="$emit('pressBtn', item)"
             >
                 {{ item.title}}
             </button>    

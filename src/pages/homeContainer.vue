@@ -31,7 +31,6 @@
                         :columnNumber="columnNumber"
                         :activeItem="activeItem"
                         @pressBtn="pressBtn"
-                        @pagePush="pagePush"
                     />
                     </div>
 
@@ -151,14 +150,20 @@ export default {
             this.movePacman()
         },
         movePacman: function() {
+            console.log('movePacman')
+
              setInterval(()=> {
 
                     if(this.columnIndex <= this.columnNumber - 1) {
                     this.columnIndex++
-                    
+                    console.log('dopo: ', this.columnIndex)
+                    } else if (this.columnIndex == this.columnNumber) {
+                        this.columnIndex++
+                        this.pagePush(this.menuItem[this.activeItem].path)
                     }
 
                 }, 300)
+
         },
         itemDown: function(index) {
             this.menuItem.forEach(element => {
