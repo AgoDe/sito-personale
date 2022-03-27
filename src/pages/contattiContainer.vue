@@ -124,6 +124,19 @@
                             </div>
                        </div>
 
+
+                        <div class="d-flex justify-content-end">
+                            <button class="chat active" v-if="sendButtonVisible" @click="sendEmail()">
+                                 Invia la richiesta
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <div class="chat" v-if="sentButtonVisible">
+                                 Richiesta inviata
+                            </div>
+                        </div>
+                       
+
                    </div>
 
                    <div class="chat-input d-flex align-items-center">
@@ -140,7 +153,7 @@
 
                </div>
                <!-- end of colonna destra (chat) -->
-                <button @click="sendEmail()">invia</button>
+                
            </div>
         </div>
     </div>
@@ -148,11 +161,13 @@
 
 <script>
 import Router from '../router';
-import emailJs from '@emailjs/browser'
+// import emailJs from '@emailjs/browser'
 
 export default {
     data() {
         return {
+            sendButtonVisible: false,
+            sentButtonVisible: false,
             forEmail: {
                 name: '',
                 email: '',
@@ -192,11 +207,13 @@ export default {
             this.forEmail.email = this.itemsToSend[1].content
             this.forEmail.message = this.itemsToSend[2].content
 
-            emailJs.send("agostino_93","contatti_sito", this.forEmail, 'oPDejNpD1WDxc6I2O').then(function(response) {
-                console.log('INVIATA', response.status, response.text)
-            }, function(error) {
-                console.log('FAILED', error)
-            })
+            // emailJs.send("agostino_93","contatti_sito", this.forEmail, 'oPDejNpD1WDxc6I2O').then(function(response) {
+            //     console.log('INVIATA', response.status, response.text)
+            // }, function(error) {
+            //     console.log('FAILED', error)
+            // })
+
+            this.sentButtonVisible = true
         },
         pagePush: function(page) {
             Router.push(page)
@@ -207,12 +224,15 @@ export default {
 
                 this.itemsToSend.push(item)
                 this.activeItem = []
+                 if(this.itemsToSend.length == 3) {
+                       this.sendButtonVisible = true
+                }
                 
                if(this.activeIndex < this.contactItems.length - 1) {
                    
-
                    this.activeIndex++
                    this.activeItem = this.contactItems[this.activeIndex]
+                  
                 }
             }
            
