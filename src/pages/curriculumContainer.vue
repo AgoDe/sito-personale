@@ -4,19 +4,19 @@
             <div class="container">
                 <div class="row align-items-center align-items-lg-end">
 
-                    <i class="back icon-arrow-left col-2"></i>
+                    <i @click="pagePush('/')" class="back icon-arrow-left col-2"></i>
 
-                    <div class="box col-2 offset-lg-1">
+                    <div class="box col-2 offset-lg-1" @click="pagePush('chisono')">
                         <i class="icon-user"></i>
                         <div class="d-none d-lg-block">Chi sono</div>
                     </div>
 
-                    <div class="box col-2">
+                    <div class="box col-2" @click="pagePush('curriculum')">
                         <i class="icon-briefcase"></i>
                         <div class="d-none d-lg-block">Curriculum</div>
                     </div>
 
-                    <div class="box col-2">
+                    <div class="box col-2" @click="pagePush('contatti')">
                         <i class="icon-comment-dots"></i>
                         <div class="d-none d-lg-block">Contatti</div>
                     </div>
@@ -47,8 +47,10 @@
 </template>
 
 <script>
-import CompetenzeBox from '../components/curriculum/competenzeBox.vue'
-import esperienzeBox from '../components/curriculum/esperienzeBox.vue'
+import CompetenzeBox from '../components/curriculum/competenzeBox.vue';
+import esperienzeBox from '../components/curriculum/esperienzeBox.vue';
+
+import Router from '../router';
 
 export default {
   components: { 
@@ -61,6 +63,11 @@ export default {
 
       }
   },
+  methods: {
+    pagePush: function(page) {
+        Router.push(page)
+    },
+  }
     
 }
 </script>

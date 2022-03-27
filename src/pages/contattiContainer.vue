@@ -8,7 +8,7 @@
                <div class="col-12 col-lg-5 info-container">
                     <header class="d-flex align-items-end">
                         <div class="d-flex align-items-center mx-3 my-1">
-                            <i class="icon-arrow-left mx-2"></i>
+                            <i @click="pagePush('/')" class="icon-arrow-left mx-2"></i>
                             <div class="mx-3">Profilo</div>
                         </div>
                    </header>
@@ -147,6 +147,8 @@
 </template>
 
 <script>
+import Router from '../router';
+
 export default {
     data() {
         return {
@@ -179,6 +181,9 @@ export default {
         this.activeItem = this.contactItems[this.activeIndex]
     },
     methods: {
+        pagePush: function(page) {
+            Router.push(page)
+        },
         pushItem: function(item) {
 
             if (this.ItemsToSend.length != this.contactItems.length) {

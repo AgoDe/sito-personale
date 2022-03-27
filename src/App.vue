@@ -7,8 +7,9 @@
 </template>
 
 <script>
-import anime from 'animejs/lib/anime.es.js';
 
+
+import anime from 'animejs/lib/anime.es.js';
 
 
 export default {
@@ -19,27 +20,7 @@ export default {
   data() {
     return {
 
-      menuItem: [
-          {
-            id:0,
-            title:'Chi sono',
-            window_status: false,
-            menu_status: true,
-          },
-          {
-            id:1,
-            title: 'Curriculum',
-            window_status: false,
-            menu_status: false,
-          },
-          {
-            id:2,
-            title: 'Contatti',
-            window_status: false,
-            menu_status: false,
-          },
-
-        ]
+    
     }
   }, // end of data
   methods: {

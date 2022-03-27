@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Menu from './pages/menuContainer.vue';
+import Home from './pages/homeContainer.vue';
 import ChiSono from './pages/chisonoContainer.vue';
 import Curriculum from './pages/curriculumContainer.vue';
 import Contatti from './pages/contattiContainer.vue';
@@ -13,8 +13,8 @@ const router =  new VueRouter({
     routes: [
         {
             path: '//',
-            component: Menu,
-            name: 'menu',
+            component: Home,
+            name: 'home',
         },
         {
             path: '/chisono',

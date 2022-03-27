@@ -24,7 +24,7 @@
             <!-- <div class="col-1"></div> -->
             <button 
             class="col-lg-3 item"
-            @click="$emit('pressBtn', item)"
+            @click="[$emit('pressBtn', item), $emit('pagePush', item.path)]"
             >
                 {{ item.title}}
             </button>    
@@ -50,7 +50,6 @@ export default {
         }
     },
     methods: {
-       
         returnPacman: function(index, item) {
             if(index === this.columnIndex && item.menu_status) {
                 return 'pacman'
