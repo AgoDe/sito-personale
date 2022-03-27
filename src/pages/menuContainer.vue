@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import menuItemBox from './menuItemBox.vue'
+import menuItemBox from '../components/menuItemBox.vue'
 export default {
   components: { menuItemBox },
     props: {

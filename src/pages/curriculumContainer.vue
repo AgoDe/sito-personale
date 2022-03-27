@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import CompetenzeBox from './curriculum/competenzeBox.vue'
-import esperienzeBox from './curriculum/esperienzeBox.vue'
+import CompetenzeBox from '../components/curriculum/competenzeBox.vue'
+import esperienzeBox from '../components/curriculum/esperienzeBox.vue'
 
 export default {
   components: { 
