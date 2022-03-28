@@ -13,7 +13,9 @@ font-family: 'Roboto', sans-serif;
     width: 100%;
 }
 
-
+i {
+    cursor: pointer;
+}
 .img-round {
     border-radius: 50%;
     object-fit: cover;

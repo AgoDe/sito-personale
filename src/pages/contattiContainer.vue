@@ -11,7 +11,7 @@
                             <i @click="pagePush('/')" class="icon-arrow-left mx-2"></i>
                             <div class="mx-3">Profilo</div>
                         </div>
-                   </header>
+                    </header>
 
                    <div class="user-container d-flex flex-column align-items-center">
 
