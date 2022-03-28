@@ -146,6 +146,8 @@ export default {
                 element.menu_status = false
             });
             item.menu_status = true
+
+            this.activeItem = item.id
             
             this.movePacman()
         },
