@@ -132,7 +132,7 @@ export default {
         
     }
     .vulnerable {
-        background-image: url('../assets/vulnerable_ghost.png');
+        background-image: url('../assets/vulnerable_ghost.svg');
         
     }
     .pacman {
