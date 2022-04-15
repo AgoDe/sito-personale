@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-lg-4 d-none d-lg-block">
-                        <h2>Agogram</h2>
+                        <img src="/images/Agogram.svg" alt="">
                     </div>
 
                     <nav class="col-12 col-md-3">
@@ -32,7 +32,7 @@
                             <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
                         </svg>
 
-                        <img class="img-round" src="/images/ago_leo.jpg" alt="img profile">
+                        <img class="img-round" src="/images/ago_1.jpg" alt="img profile">
                     </nav>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 <div class="row profile">
 
                     <div class="col text-center">
-                        <img class="img-round" src="/images/ago_leo.jpg" alt="img profile">
+                        <img class="img-round" src="/images/ago_1.jpg" alt="img profile">
                     </div>
 
                     <div class="col-12 col-md-7">
@@ -54,27 +54,36 @@
                 </div>
 
                 <div class="row gallery">
-                    <div class="col-4">
-                        <div class="square">
+                    <div class="col-4 col-md-3"
+                    v-for="(item, index) in gallery"
+                    :key="index"
+                    >
+                        
+                            <img :src="`/images/${item.path}`" :alt="item.path"
+                            @click="setVisible(item)"
+                            >
+                        
 
+                        <div class="details-window"
+                        v-if="item.visible"
+                        >
+                            
+                            <i class="icon-xmark" @click="setNotVisible(item)"></i>
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <img :src="`/images/${item.path}`" :alt="item.path">
+                                    </div>
+
+                                    <div class="col-4">
+                                        {{item.description}}
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="square">
-
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="square">
-
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="square">
-
-                        </div>
-                    </div>
-                  
                 </div>
             </div>
         </main>
@@ -92,7 +101,19 @@ export default {
                 {
                     path: 'ago_boolean.jpg',
                     description:'grazie a Boolean è iniziato il mio Amore per il coding',
-                }
+                    visible: false,
+                },
+                {
+                    path: 'ago_leo.jpg',
+                    description:'io e il mio polpettone',
+                    visible: false,
+                },
+                {
+                    path: 'batteria.jpg',
+                    description:'la batteria è un altra delle mie grandi passioni',
+                    visible: false,
+                },
+                
             ]
         }
     }, // end of data
@@ -100,19 +121,32 @@ export default {
         pagePush: function(page) {
             Router.push(page)
         },
+        setVisible: function(item) {
+            item.visible = true
+        },
+        setNotVisible: function(item) {
+            item.visible = false
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '/src/styles/main.scss';
-
+     
     .big-container {
         background-color: rgb(250, 250, 250);
 
+        svg {
+            cursor: pointer;
+        }
         header {
             background: white;
             border-bottom: $border_grey 1px solid;
+
+            img {
+                height: 60px;
+            }
 
             nav {
                 height: 60px;
@@ -152,10 +186,59 @@ export default {
                     .col-4 {
                         padding: 15px;
                         
-                        .square {
-                            border: 2px blue solid;
+                        
+
+                        img {
                             width: 100%;
-                            height: 200px;
+                            object-fit: cover;
+                            cursor: pointer;
+                            
+                        }
+
+                        .details-window {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            background: rgba($color: #333, $alpha: 0.5);
+                            backdrop-filter: blur(3px);
+                            
+
+                            width: 100%;
+                            height: 100vh;
+
+                            .icon-xmark {
+                                font-size: 40px;
+                                color: white;
+                                position: absolute;
+                                right: 30px;
+                                top: 30px;
+                            }
+
+                            .container {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+ 
+                                .row {
+                                    height: 80%;
+                                    border-radius: 6px;
+                                    background: white;
+
+                                    .col-8 {
+                                        height: 100%;
+                                        padding: 0;
+                                        img {
+                                            height: 100%;
+                                            width: 100%;
+                                            object-fit: cover;
+                                            border-top-left-radius: 6px;
+                                            border-bottom-left-radius: 6px;
+                                        }
+                                    }
+
+                                }
+                                
+                            }
                         }
                     }
                 }
