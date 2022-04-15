@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div 
-            class="col-lg-1"
+            class="col-lg-1 d-none d-md-block"
             :class="[returnGhost(index, item),]"
             v-for="index in columnNumber"
             :key="index"
