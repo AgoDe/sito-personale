@@ -151,12 +151,12 @@
             padding: 0;
             position: relative;
             .title {
-                height: 50px;
+                height: 80px;
                 padding: 15px 30px;
                 background: $bg_contatti;
             }
             .chat-box {
-                height: calc(100% - 110px);
+                height: calc(100% - 140px);
                 max-height: calc(100% - 110px);
                 position: relative;
                 overflow-y: auto;

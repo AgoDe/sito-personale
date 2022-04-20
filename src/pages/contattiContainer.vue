@@ -26,7 +26,7 @@
                                Agostino De Felice
                            </div>
                            <div class="info">
-                               Via della Ninfa, 14 - 06132, Perugia PG
+                                Perugia (PG)
                            </div>
                            <div class="info">
                                375 5357258
@@ -101,7 +101,8 @@
                <!-- colonna destra (chat) -->
                <div class="col-12 col-lg-7 chat-container">
                    <div class="title">
-                       <h5>Contattami</h5>
+                       <h5>Contattami </h5>
+                       <h6>compila il form con le informazioni richieste</h6>
                    </div>
 
                    <div class="chat-box">
