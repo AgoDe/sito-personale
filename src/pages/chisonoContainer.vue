@@ -1,5 +1,7 @@
 <template>
     <div class="big-container">
+
+        <!-- header -->
         <header>
             <div class="container">
                 <div class="row justify-content-between align-items-center">
@@ -37,6 +39,7 @@
                 </div>
             </div>
         </header>
+        <!-- end of header -->
 
         <main>
             <div class="container">
@@ -53,38 +56,17 @@
 
                 </div>
 
+                <!-- gallery -->
                 <div class="row gallery">
-                    <div class="col-4 col-md-3"
+                    <gallery-box
                     v-for="(item, index) in gallery"
                     :key="index"
+                    :item="item"
                     >
-                        
-                            <img :src="`/images/${item.path}`" :alt="item.path"
-                            @click="setVisible(item)"
-                            >
-                        
-
-                        <div class="details-window"
-                        v-if="item.visible"
-                        >
-                            
-                            <i class="icon-xmark" @click="setNotVisible(item)"></i>
-
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <img :src="`/images/${item.path}`" :alt="item.path">
-                                    </div>
-
-                                    <div class="col-4">
-                                        {{item.description}}
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                    </gallery-box>
                 </div>
+                <!-- end of gallery -->
+
             </div>
         </main>
 
@@ -92,27 +74,45 @@
 </template>
 
 <script>
+import GalleryBox from '../components/galleryBox.vue';
 import Router from '../router';
 
 export default {
+    components: {
+        GalleryBox,
+
+    },
     data() {
         return {
-            gallery:[
+ 
+        gallery:[
+                {
+                    path: 'famiglia.jpeg',
+                    description:'La cosa per me più importante. Tutto l\'impegno che metto nelle cose nasce dal voler garantire un futuro migliore alla mia famiglia e insegnare a mio figlio i buoni valori che mi sono stati insegnati.',
+                    visible: false,
+                },
                 {
                     path: 'ago_boolean.jpg',
-                    description:'grazie a Boolean è iniziato il mio Amore per il coding',
+                    description:'La mia carriera da Full Stack Web Developer nasce da qui: Era Ottobre 2021 ed a breve avrei iniziato il corso. Ricordo ancora oggi l\'entusiamo per questo nuovo inizio. Oltre tutte le competenze imparate, da questa esperienza ho imparato ad amare il codice!',
                     visible: false,
                 },
-                {
-                    path: 'ago_leo.jpg',
-                    description:'io e il mio polpettone',
-                    visible: false,
-                },
+                
                 {
                     path: 'batteria.jpg',
-                    description:'la batteria è un altra delle mie grandi passioni',
+                    description:'Un\'altra delle mie grandi passioni... la musica! Ho iniziato a suonare la batteria quasi per gioco, ma me ne sono innamprato quasi subito! Oggi coltivo questa passione suonando con un orchestra da ballo in vari locali nel centro Italia.',
                     visible: false,
                 },
+                {
+                    path: '',
+                    description:'',
+                    visible: false,
+                },
+                {
+                    path: '',
+                    description:'',
+                    visible: false,
+                },
+                
                 
             ]
         }
@@ -121,12 +121,7 @@ export default {
         pagePush: function(page) {
             Router.push(page)
         },
-        setVisible: function(item) {
-            item.visible = true
-        },
-        setNotVisible: function(item) {
-            item.visible = false
-        }
+      
     }
 }
 </script>
@@ -136,6 +131,7 @@ export default {
      
     .big-container {
         background-color: rgb(250, 250, 250);
+        overflow-y: auto;
 
         svg {
             cursor: pointer;
@@ -143,6 +139,9 @@ export default {
         header {
             background: white;
             border-bottom: $border_grey 1px solid;
+            position: fixed;
+            top: 0;
+            width: 100%;
 
             img {
                 height: 60px;
@@ -163,6 +162,7 @@ export default {
         } // end of header
 
         main {
+            padding-top: 60px;
             height: 100%;
             .container {
                 height: 100%;
@@ -185,61 +185,7 @@ export default {
                     flex-wrap: wrap;
                     .col-4 {
                         padding: 15px;
-                        
-                        
-
-                        img {
-                            width: 100%;
-                            object-fit: cover;
-                            cursor: pointer;
-                            
-                        }
-
-                        .details-window {
-                            position: fixed;
-                            top: 0;
-                            left: 0;
-                            background: rgba($color: #333, $alpha: 0.5);
-                            backdrop-filter: blur(3px);
-                            
-
-                            width: 100%;
-                            height: 100vh;
-
-                            .icon-xmark {
-                                font-size: 40px;
-                                color: white;
-                                position: absolute;
-                                right: 30px;
-                                top: 30px;
-                            }
-
-                            .container {
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
- 
-                                .row {
-                                    height: 80%;
-                                    border-radius: 6px;
-                                    background: white;
-
-                                    .col-8 {
-                                        height: 100%;
-                                        padding: 0;
-                                        img {
-                                            height: 100%;
-                                            width: 100%;
-                                            object-fit: cover;
-                                            border-top-left-radius: 6px;
-                                            border-bottom-left-radius: 6px;
-                                        }
-                                    }
-
-                                }
-                                
-                            }
-                        }
+                      
                     }
                 }
             }
