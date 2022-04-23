@@ -162,7 +162,7 @@
 
 <script>
 import Router from '../router';
-// import emailJs from '@emailjs/browser'
+import emailJs from '@emailjs/browser'
 
 export default {
     data() {
@@ -208,11 +208,11 @@ export default {
             this.forEmail.email = this.itemsToSend[1].content
             this.forEmail.message = this.itemsToSend[2].content
 
-            // emailJs.send("agostino_93","contatti_sito", this.forEmail, 'oPDejNpD1WDxc6I2O').then(function(response) {
-            //     console.log('INVIATA', response.status, response.text)
-            // }, function(error) {
-            //     console.log('FAILED', error)
-            // })
+            emailJs.send("agostino_93","contatti_sito", this.forEmail, 'oPDejNpD1WDxc6I2O').then(function(response) {
+                console.log('INVIATA', response.status, response.text)
+            }, function(error) {
+                console.log('FAILED', error)
+            })
 
             this.sentButtonVisible = true
         },
