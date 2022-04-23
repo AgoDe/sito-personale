@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import FirstHome from './pages/firstHome.vue';
 import Home from './pages/homeContainer.vue';
 import ChiSono from './pages/chisonoContainer.vue';
 import Curriculum from './pages/curriculumContainer.vue';
@@ -13,6 +14,11 @@ const router =  new VueRouter({
     routes: [
         {
             path: '//',
+            component: FirstHome,
+            name: 'first-home',
+        },
+        {
+            path: '/home',
             component: Home,
             name: 'home',
         },

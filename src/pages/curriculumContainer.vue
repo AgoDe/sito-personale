@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row align-items-center align-items-lg-end">
 
-                    <i @click="pagePush('/')" class="back icon-arrow-left col-2"></i>
+                    <i @click="pagePush('/home')" class="back icon-arrow-left col-2"></i>
 
                     <div class="box col-2 offset-lg-1" @click="pagePush('chisono')">
                         <i class="icon-user"></i>

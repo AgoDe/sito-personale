@@ -7,39 +7,9 @@
 </template>
 
 <script>
-
-
-import anime from 'animejs/lib/anime.es.js';
-
-
 export default {
   name: 'App',
-  components: {
-   
-  },
-  data() {
-    return {
-
-    
-    }
-  }, // end of data
-  methods: {
-    returnTransition: function() {
-
-      this.menuVisible = true
-      setTimeout( function() {
-
-        anime({
-          targets: ['.enter', '.home'],
-          translateY: '-100%',
-          easing: 'steps(8)',
-          duration: 1500,
-        });
-
-        this.enterVisible = false
-      }, 500)
-    },
-  } // end of methods
+  
 }
 </script>
 
@@ -53,6 +23,4 @@ export default {
   max-height: 100vh;
 
 }
-
-
 </style>

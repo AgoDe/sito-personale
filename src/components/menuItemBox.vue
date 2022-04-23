@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div 
-            class="col-lg-1 d-none d-md-block"
+            class="col-lg-1"
             :class="[returnGhost(index, item),]"
             v-for="index in columnNumber"
             :key="index"
@@ -149,7 +149,7 @@ export default {
         width: 101%;
         height: 101%;
         clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
-        animation-duration: 300ms;
+        animation-duration: 250ms;
         animation-iteration-count: infinite;
         };
         .mouth.animate {

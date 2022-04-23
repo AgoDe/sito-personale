@@ -2,6 +2,11 @@
 
     <div class="window">
 
+        <enter-page
+        class="enter"
+        @returnTransition="returnTransition"
+        />
+
         <div class="big-container home">
             
             <div class="container">
@@ -48,6 +53,7 @@
 </template>
 
 <script>
+import EnterPage from '../components/enterPage.vue'
 import menuItemBox from '../components/menuItemBox.vue'
 
 import anime from 'animejs/lib/anime.es.js';
@@ -57,12 +63,12 @@ import Router from '../router';
 export default {
   components: { 
     menuItemBox,
-    
+    EnterPage 
   },
    
     data() {
         return {
-            
+            enterVisible: true,
             menuItem: [
           {
             id:0,
@@ -139,6 +145,21 @@ export default {
     methods: {
         pagePush: function(page) {
             Router.push(page)
+        },
+        returnTransition: function() {
+
+            anime({
+            targets: ['.enter', '.home'],
+            translateY: '-100%',
+            easing: 'steps(8)',
+            duration: 1500,
+            });
+
+            setInterval(() => {
+
+                this.enterVisible = false
+            }, 1000);
+             
         },
         pressBtn: function(item) {
              this.menuItem.forEach(element => {
