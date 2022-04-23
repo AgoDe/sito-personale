@@ -24,14 +24,26 @@
                     v-for="item in menuItem"
                     :key="item.id"
                     >
-                    <menu-item-box
+                         <!-- menu for mobile -->
+                        <button 
+                        v-if="!isDesktop"
+                        class="col-12 item"
+                        @click="pagePush(item.path)"
+                        >
+                            {{ item.title}}
+                        </button> 
+                         <!-- end of menu for mobile -->
+
+
+                        <menu-item-box
+                        v-if="IsDesktop"
                         :item="item"
                         :rowIndex="rowIndex"
                         :columnIndex="columnIndex"
                         :columnNumber="columnNumber"
                         :activeItem="activeItem"
                         @pressBtn="pressBtn"
-                    />
+                        />
                     </div>
 
                 </div>
@@ -84,10 +96,18 @@ export default {
             rowIndex: 0,
             columnIndex: 1,
             columnNumber: 9,
-            activeItem: 0
+            activeItem: 0,
+            isDesktop: true,
+            windowSize: '',
         }
     },
      mounted() {
+
+         // window width
+          this.windowSize = window.innerWidth;
+            if (this.windowSize < 768) {
+             this.isDesktop = false;
+      }
          // move pacman up and down
         document.addEventListener('keydown', (event) => {
             
@@ -220,6 +240,16 @@ export default {
                 }
                 .menu {
                     margin: 0 auto;
+
+                    .item {
+                    background-color: $yellow;
+                    border-radius: 10px;
+                    padding: 8px 0;
+                    color: $bg_blue;
+                    font-size: 18px;
+                    text-align: center;
+
+            }
                 }
 
 
