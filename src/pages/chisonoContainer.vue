@@ -51,7 +51,9 @@
 
                     <div class="col-12 col-md-7">
                         <h2>Agostino De Felice</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio at accusantium rem labore dignissimos incidunt, similique tenetur molestias? Deleniti labore doloribus velit sint! Eveniet vitae fuga quos voluptas voluptatem magni?</p>
+                        <p>
+                            Il cognome dice tutto! Sono una persona solare, estroversa e con tante passioni, molte legate alla mia creatività e alla voglia di relazionarmi con gli altri.
+                        </p>
                     </div>
 
                 </div>
@@ -103,13 +105,18 @@ export default {
                     visible: false,
                 },
                 {
-                    path: '',
-                    description:'',
+                    path: 'pizza.jpeg',
+                    description:'Questa foto racchiude per me 3 piaceri: Cucinare, mangiare e stare in compagnia! ',
                     visible: false,
                 },
                 {
-                    path: '',
-                    description:'',
+                    path: 'tavolo.jpeg',
+                    description:'Sono una persona molto creativa, e amo tutto ciò che riesca a farmi esprimere e mi dia la possibilità di creare cose nuove!',
+                    visible: false,
+                },
+                {
+                    path: 'roma.jpg',
+                    description:'Ho una grande passione per la storia, in particolare per quella della Roma Antica. Mi piace ascoltare svariati podcast sulla storia che mi tengono compagnia durante le attività giornaliere.',
                     visible: false,
                 },
                 
